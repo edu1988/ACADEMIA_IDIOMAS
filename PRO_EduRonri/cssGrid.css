@@ -1,0 +1,107 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 100px auto 70px;
+    grid-template-areas: "cabecera cabecera"
+                        "cuerpo fecha"
+                        "pie pie";
+}
+header{
+    background: #324FA6;
+    grid-area: cabecera;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+main{
+    background: #F0F2A7;
+    grid-area: cuerpo;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+}
+aside{
+    background: #F0F2A7;
+    grid-area: fecha;
+}
+footer{
+    background: #D9AF32;
+    grid-area: pie;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+header h1{
+    min-width: 300px;
+    color:white;
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+}
+header div{
+    display: flex;
+    align-items: center;
+}
+header img:first-of-type{
+    margin-right: 20px;
+}
+header img{
+    height: 60px;
+}
+header div span{
+    color:white;
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+}
+header div img{
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 10px;
+}
+footer img{
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+footer address{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer div.contacto{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+footer div.contacto span{
+    margin-right: 10px;
+    border-right: solid 4px white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+main .recursos,.tareas{
+    margin: 40px;
+    background-color: white;
+    position: relative;
+}
+main h2{
+    font-family: 'Comfortaa', cursive;
+    background: #4465A6;
+    color: white;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 10px;
+    position: absolute;
+    top: -50px;
+    left: -10px;
+}
+.recursos-contet,.tareas-contet{
+    max-height: 60vh;
+    overflow-y: auto;
+}
