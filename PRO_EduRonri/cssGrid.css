@@ -102,6 +102,63 @@ main h2{
     left: -10px;
 }
 .recursos-contet,.tareas-contet{
-    max-height: 60vh;
+    max-height: 70vh;
     overflow-y: auto;
+    
+}
+main *{
+    font-family: 'Comfortaa', cursive;
+}
+main .recursos-contet p{
+    font-family: 'Comfortaa', cursive;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+main .recursos-contet img{
+    height: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+main .recursos-contet h3{
+    font-family: 'Comfortaa', cursive;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 1.75em;
+}
+main .tareas-contet h3{
+    font-family: 'Comfortaa', cursive;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 1.75em;
+}
+main .tareas-contet h4{
+    font-family: 'Comfortaa', cursive;
+    padding-left: 40px;
+    font-size: 1.25em;
+}
+main .tareas-contet p{
+    padding-left: 50px;
+    padding-right: 10px;
+}
+.arrastrar{
+    background: #6997BF;
+    height: 60px;
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+    margin-right: 10px;
+    text-align: center;
+    border: solid 1px black;
+    cursor: pointer;
+}
+.botones input{
+    margin-top: 20px;
+    height: 20px;
+}
+.botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 50px;
+    padding-right: 10px;
 }
