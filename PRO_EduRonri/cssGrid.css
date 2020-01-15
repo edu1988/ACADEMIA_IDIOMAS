@@ -9,6 +9,17 @@ body{
                         "cuerpo fecha"
                         "pie pie";
 }
+body#submenu{
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 100px auto 70px;
+    grid-template-areas: "cabecera cabecera"
+                        "cuerpo fecha"
+                        "pie pie";
+}
 header{
     background: #324FA6;
     grid-area: cabecera;
@@ -19,7 +30,7 @@ header{
     padding-right: 2%;
 }
 
-main{
+main#tareas{
     background: #F0F2A7;
     grid-area: cuerpo;
     display: grid;
@@ -28,6 +39,10 @@ main{
 aside{
     background: #F0F2A7;
     grid-area: fecha;
+}
+aside iframe{
+    margin-top: 20px;
+    height: 250px;
 }
 footer{
     background: #D9AF32;
@@ -85,12 +100,12 @@ footer div.contacto span{
     padding-bottom: 20px;
     padding-right: 10px;
 }
-main .recursos,.tareas{
+main#tareas .recursos,.tareas{
     margin: 40px;
     background-color: white;
     position: relative;
 }
-main h2{
+main#tareas h2{
     font-family: 'Comfortaa', cursive;
     background: #4465A6;
     color: white;
@@ -106,37 +121,37 @@ main h2{
     overflow-y: auto;
     
 }
-main *{
+main#tareas *{
     font-family: 'Comfortaa', cursive;
 }
-main .recursos-contet p{
+main#tareas .recursos-contet p{
     font-family: 'Comfortaa', cursive;
     padding-left: 40px;
     padding-right: 10px;
 }
-main .recursos-contet img{
+main#tareas .recursos-contet img{
     height: 20px;
     padding-left: 20px;
     padding-right: 10px;
 }
-main .recursos-contet h3{
+main#tareas .recursos-contet h3{
     font-family: 'Comfortaa', cursive;
     padding-top: 20px;
     padding-left: 20px;
     font-size: 1.75em;
 }
-main .tareas-contet h3{
+main#tareas .tareas-contet h3{
     font-family: 'Comfortaa', cursive;
     padding-top: 20px;
     padding-left: 20px;
     font-size: 1.75em;
 }
-main .tareas-contet h4{
+main#tareas .tareas-contet h4{
     font-family: 'Comfortaa', cursive;
     padding-left: 40px;
     font-size: 1.25em;
 }
-main .tareas-contet p{
+main#tareas .tareas-contet p{
     padding-left: 50px;
     padding-right: 10px;
 }
@@ -161,4 +176,55 @@ main .tareas-contet p{
     grid-template-rows: 1fr 1fr;
     padding-left: 50px;
     padding-right: 10px;
+}
+main#submenus{
+    background: #F0F2A7;
+    grid-area: cuerpo;
+}
+main#submenus h2{
+    margin-top: 20px;
+    margin-right: 20px;
+    display: grid;
+    text-align: end;
+}
+main#submenus h1{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: grid;
+    text-align: start;
+}
+.botonEntrar{
+    cursor: pointer;
+    color: white;
+    background:#4465A6;
+    width: 100%;
+    height: 20%;
+    position: relative;
+    bottom: -100px;
+    text-align: center;
+    
+}
+.botonEntrar:hover{
+    cursor: pointer;
+    color: white;
+    background:hsl(225, 54%, 32%);
+    text-align: center;
+}
+#submenu .contenedor{
+    width: 80%;
+    height: 150px;
+    font-family: 'Comfortaa', cursive;
+    margin-top: 50px;
+    margin-left: 10%;
+    background: white;
+    display: grid;
+    
+    position: relative;
+    grid-template-columns: 1fr 3fr 1fr;
+    -moz-box-shadow: -25px -25px 0 5px #4465A6;
+    -webkit-box-shadow: -25px -25px 0 5px#4465A6;
+    box-shadow: -25px -25px 0 5px #4465A6;
+}
+#submenu .contenedor *{
+    display: inline-block;
 }
