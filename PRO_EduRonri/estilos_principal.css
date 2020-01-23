@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: [linea1] 80% [linea2] 20% [linea3];
+  grid-template-columns: [linea1] 75% [linea2] 25% [linea3];
   grid-template-rows: [techo] 100vh [suelo];
   grid-template-areas: "header main";
   justify-items: stretch;
@@ -35,7 +35,7 @@ header.menu img {
 }
 
 /*VERSION PARA TABLETA*/
-@media (max-width: 790px) {
+@media (max-width: 810px) {
   body {
     grid-template-columns: [linea1] 60% [linea2] 40% [linea3];
   }
@@ -50,25 +50,79 @@ header.menu img {
     grid-template-columns: [linea1] 100% [linea2];
     grid-template-areas: "main";
   }
+
 }
+
+
 
 main.menu {
   /* width: 20%; */
   background: #4465a6;
   display: grid;
   grid-template-columns: [linea1] 100% [linea2];
-  grid-template-rows: [techo1] 20% [techo2] 60% [techo3] 20% [techo4];
+  grid-template-rows: [techo1] 40% [techo2] 30% [techo3] 10% [techo4] 20% [techo5];
   grid-template-areas: "logo" "form" "olvido";
+  justify-items: center;
+  align-items: end;
+}
+
+@media (max-height: 350px){
+  main.menu{
+    grid-template-rows: [techo1] 40% [techo2] 40% [techo3] 15% [techo4] 5% [techo5];
+    grid-template-areas: "logo" "form" "olvido";
+  }
 }
 
 main.menu > img {
   grid-area: logo;
+  max-width:90%;
+  max-height:90%;
 }
 
 main.menu > form {
   grid-area: form;
+  text-align:center;
+  width:100%;
+  max-height: 100%;
 }
+
 
 main.menu > a {
   grid-area: olvido;
+  text-decoration: none;
+  color:white;
+}
+
+/*Enlace de "olvidé la contraseña"*/
+main.menu > a:active{
+  text-decoration: none;
+  color:white;
+}
+
+
+
+/*Iconitos del formulario*/
+main.menu>form img{
+  width:20px;
+  height: 20px;
+  position:relative;
+  top:3px;
+  display:inline-block;
+}
+
+main.menu>form div{
+  width:100%;
+  margin:10px 0px;
+}
+
+/*Campos del formulario*/
+main.menu>form input[type="text"],input[type="password"]{
+  margin:0px 5px;
+  width: 60%;
+}
+
+/*Boton enviar*/
+main.menu>form input[type="submit"]{
+  display:block;
+  margin:20px auto;
 }
