@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: [linea1] 80% [linea2] 20% [linea3];
+  grid-template-rows: [techo] 100vh [suelo];
+  grid-template-areas: "header main";
+  justify-items: stretch;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+.menu {
+  float: left;
+  overflow: auto;
+  /* margin: 0 auto; */
+  /* height: 100vh; */
+}
+header.menu {
+  background: #f0f2a7;
+  /* width: 80%; */
+  position: relative;
+}
+header.menu img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.7, 1.7);
+}
+
+/*VERSION PARA TABLETA*/
+@media (max-width: 790px) {
+  body {
+    grid-template-columns: [linea1] 60% [linea2] 40% [linea3];
+  }
+  header.menu img {
+    transform: translate(-50%, -50%) scale(1, 1);
+  }
+}
+
+/*VERSION PARA MOVIL*/
+@media (max-width: 500px) {
+  body {
+    grid-template-columns: [linea1] 100% [linea2];
+    grid-template-areas: "main";
+  }
+}
+
+main.menu {
+  /* width: 20%; */
+  background: #4465a6;
+  display: grid;
+  grid-template-columns: [linea1] 100% [linea2];
+  grid-template-rows: [techo1] 20% [techo2] 60% [techo3] 20% [techo4];
+  grid-template-areas: "logo" "form" "olvido";
+}
+
+main.menu > img {
+  grid-area: logo;
+}
+
+main.menu > form {
+  grid-area: form;
+}
+
+main.menu > a {
+  grid-area: olvido;
+}
