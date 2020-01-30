@@ -53,6 +53,9 @@
       function iniciar(){
         var botonEnviar=document.querySelector("input[type='submit']");
         botonEnviar.addEventListener("click",redirigir);
+        setTimeout(function(){
+          alert("Para entrar a la zona de alumno escribe 'alumno' en la zona de login \n y pulsa a Enviar. Para acceder a la zona de profesor escribe 'profesor'")
+        },3000);
       }
 
       function redirigir(e){
