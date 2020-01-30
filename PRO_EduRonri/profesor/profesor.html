@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROFESOR</title>
+    <link rel="stylesheet" href="profesor.css">
+</head>
+<body id='taresaBody'>
+    <header>
+        <img src="../img/menu/logo.png">
+        <h1 >Ingles C2</h1>
+        <div>
+            <p>Profesor</p>
+            <img src="../img/menu/usu.png">
+        </div>
+    </header>
+    <main id='notas'>
+        <div class='cursos'>
+            <div id='InglesDespegable'>
+                <h1>Ingles C1</h1>
+                <ul>
+                    <li>Compresion Lectora</li>
+                    <li>Compresion Oral</li>
+                    <li>Expresion Lectora</li>
+                    <li>Expresion Oral</li>
+                </ul>
+            </div>
+            <div id='InglesDespegable'>
+                <h1>Ingles C2</h1>
+                <ul>
+                    <li>Compresion Lectora</li>
+                    <li>Compresion Oral</li>
+                    <li>Expresion Lectora</li>
+                    <li>Expresion Oral</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class='contenido'>
+                <div class='migasDePan'>
+                    <a href="../index.html">Inicio</a>/<a href="">Profesor</a>
+                </div>
+            </div>
+            <h2>Ingles C1</h2>
+            <div class='tabla'>
+                <table>
+                    <tr><th>Alumno</th><th>Tarea 1</th><th class='masTarea'>+ Nueva tarea</th><th class='masTarea'>+ Nueva tarea</th><th class='masTarea'>+ Nueva tarea</th></tr>
+                    <tr><td>Alumno 1</td><td class='mirarClick'>click para mirar</td><td></td><td></td><td></td></tr>
+                    <tr><td>Alumno 2</td><td class='mirarClick'>click para mirar</td><td></td><td></td><td></td></tr>
+                    <tr><td>Alumno 3</td><td class='mirarClick'>click para mirar</td><td></td><td></td><td></td></tr>
+                    <tr><td>Alumno 4</td><td class='mirarClick'>click para mirar</td><td> </td><td></td><td></td></tr>
+                    <tr><td>Alumno 5</td><td class='mirarClick'>click para mirar</td><td> </td><td></td><td></td></tr>
+                    <tr><td>Alumno 6</td><td class='mirarClick'>click para mirar</td><td> </td><td></td><td></td></tr>
+                    <tr><td>Alumno 7</td><td class='mirarClick'>click para mirar</td><td> </td><td></td><td></td></tr>
+                    <tr><td>Alumno 8</td><td class='mirarClick'>click para mirar</td><td>  </td><td></td><td></td></tr>
+                    <tr><td>Alumno 9</td><td class='mirarClick'>click para mirar</td><td>  </td><td></td><td></td></tr>
+                    <tr><td>Alumno 10</td><td class='mirarClick'>click para mirar</td><td>  </td><td></td><td></td></tr>
+                    <tr><td>Alumno 11</td><td class='mirarClick'>click para mirar</td><td>  </td><td></td><td></td></tr>
+                    <tr><td>Alumno 12</td><td class='mirarClick'>click para mirar</td><td>  </td><td></td><td></td></tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <address>Copyright 2018 - Junta de Castilla y León, Consejería de Educación</address>
+        <div class="contacto"><span>Contacto</span><div><img src="../img/imgSueltos/twitter-logo-blanco.jpg" id="imgTwiter"><img src="../img/imgSueltos/VV114FWs_400x400.png" id="imgInstagram"><img src="../img/imgSueltos/fb_icon_325x325.png" id="imgFacebook"></div></div>
+    </footer>
+    
+    <div class='tresBarras'>
+        <img src='../img/imgSueltos/58497.svg'>
+    </div>
+    <script>
+        scrreePro();
+        function scrreePro(){
+                if(window.matchMedia("(max-width: 1074px)").matches){
+                    document.querySelectorAll('ul').forEach(ele=>{
+                        ele.style.visibility = 'hidden';
+                    });
+                    query("#InglesDespegable").forEach(eleme=>{
+                        eleme.addEventListener("mouseenter",mostarDesplegable);
+                        eleme.addEventListener("mouseleave",desaparecer)
+                    });
+                }else{
+                    query("#InglesDespegable").forEach(eleme=>{
+                        eleme.removeEventListener("mouseenter",mostarDesplegable);
+                        eleme.removeEventListener("mouseleave",desaparecer)
+                    })
+                    document.querySelectorAll('ul').forEach(ele=>{
+                        ele.style.visibility = 'visible';
+                    });
+                }
+            };
+        var ancho = window.innerWidth ;
+        setInterval(function(){
+                if(ancho!=window.innerWidth){
+                    ancho = window.innerWidth;
+                    scrreePro();
+                }
+        },200)
+        function desaparecer(e){
+            if(e.target.querySelectorAll('ul')[0]!=undefined){
+                                e.target.querySelectorAll('ul')[0].className ="desaparecer";
+                                setTimeout(function(){
+                                    e.target.querySelectorAll('ul')[0].style.visibility = 'hidden';
+                                },200)
+                            }
+        }
+        function mostarDesplegable(e){
+                if(e.target.querySelectorAll('ul')[0]!=undefined){
+                    e.target.querySelectorAll('ul')[0].className ='aparecer';
+                    e.target.querySelectorAll('ul')[0].style.visibility = 'visible';
+                    e.target.querySelectorAll('ul')[0].style.top = "27px"
+                    e.target.querySelectorAll('ul')[0].style.left =e.target.offsetLeft+"px";
+                }
+                
+        }
+        query(".masTarea").forEach(eleme=>{
+            eleme.addEventListener("click",function(e){
+                crearPopUp('Nueva Tarea');
+            });
+        });
+        query(".mirarClick").forEach(eleme=>{
+            eleme.addEventListener("click",function(e){
+                crearPopUp2('Tarea 1');
+            });
+        });
+        function crearPopUp2(titulo){
+            var divFondo = crearElemento('div');
+            divFondo.id='fondo';
+            anadirElemento(query('body')[0],divFondo)
+            var divPrinci = crearElemento('div');
+            divPrinci.id='popUp';
+            var img = crearElemento('img');
+            img.src = '../img/imgSueltos/x.png'
+            img.addEventListener('click',salir);
+            anadirElemento(divPrinci,img)
+            anadirElemento(query('body')[0],divPrinci)
+            divFondo.addEventListener('click',salir);
+            var h1 = crearElemento('h1');
+            h1.innerHTML = titulo+" Alumno 1";
+            anadirElemento(divPrinci,h1)
+            var divcont  = crearElemento('div');
+            divcont.id='contenidoPopup2';
+
+            var div1 = crearElemento('div');
+            div1.innerHTML = 'lorem dsaskj ajas kdandkjdasb dasas dhjas djasd asjkd akjsd askj daskjdaskjd kjas daskj daskj daskj dkjasd kjsa adkjass j'
+            anadirElemento(divcont,div1);
+            var div2  = crearElemento('div');
+            div2.id = 'datos'
+            var h3 = crearElemento('h3')
+            h3.innerHTML = 'Datos del alumno';
+            anadirElemento(div2,h3);
+            var img = crearElemento('img')
+            img.src = '../img/imgSueltos/excel.png';
+            anadirElemento(div2,img);
+            var img = crearElemento('img')
+            img.src = '../img/imgSueltos/pdf.png';
+            anadirElemento(div2,img);
+            var img = crearElemento('img')
+            img.src = '../img/imgSueltos/word.png';
+            anadirElemento(div2,img);
+            anadirElemento(divcont,div2);
+            var div3 = crearElemento('div')
+            div3.id = 'correcion'
+            var h3 = crearElemento('h3')
+            h3.innerHTML = 'Correccion:'
+            anadirElemento(div3,h3);
+            var p = crearElemento('p')
+            p.innerHTML = 'Fecha de Entrega 10/10/2019'
+            anadirElemento(div3,p);
+            var div9 = crearElemento('div')
+            var h4 =  crearElemento('h4')
+            h4.innerHTML = 'Nota'
+            anadirElemento(div9,h4);
+            var h4 =  crearElemento('input')
+            h4.type = 'text';
+            anadirElemento(div9,h4);
+            anadirElemento(div3,div9);
+            anadirElemento(divcont,div3);
+            var div9 = crearElemento('div')
+            var h4 =  crearElemento('h4')
+            h4.innerHTML = 'Comentario De Profesor'
+            anadirElemento(div9,h4);
+            var text = crearElemento("textarea");
+            anadirElemento(div9,text);
+            anadirElemento(div3,div9);
+            anadirElemento(divPrinci,divcont)
+        }
+        function crearPopUp(titulo){
+            var divFondo = crearElemento('div');
+            divFondo.id='fondo';
+            anadirElemento(query('body')[0],divFondo)
+            var divPrinci = crearElemento('div');
+            divPrinci.id='popUp';
+            var img = crearElemento('img');
+            img.src = '../img/imgSueltos/x.png'
+            img.addEventListener('click',salir);
+            anadirElemento(divPrinci,img)
+            anadirElemento(query('body')[0],divPrinci)
+            divFondo.addEventListener('click',salir);
+            var h1 = crearElemento('h1');
+            h1.innerHTML = titulo;
+            anadirElemento(divPrinci,h1)
+            var divcont  = crearElemento('div');
+            divcont.id='contenidoPopup';
+
+            var div = crearElemento('div');
+            var p = crearElemento('p');
+            p.innerHTML = 'Nombre de la tarea'
+            var input = crearElemento('input');
+            input.type ='text';
+            var div3 =crearElemento('div');
+            div3.innerHTML = '<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Examen</label>';
+            anadirElemento(div,p)
+            anadirElemento(div,input)
+            anadirElemento(div,div3)
+            anadirElemento(divcont,div)
+            var p = crearElemento('p');
+            p.innerHTML = 'Fecha de entrega'
+            var input = crearElemento('input');
+            input.type ='date';
+            anadirElemento(div,p)
+            anadirElemento(div,input)
+            anadirElemento(div,crearElemento("div"))
+            anadirElemento(divcont,div)
+
+            anadirElemento(div,crearElemento("div"))
+            var div3 =crearElemento('div');
+            div3.innerHTML = '<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Cerrar Entrega</label>';
+            anadirElemento(div,div3)
+            anadirElemento(div,crearElemento("div"))
+            anadirElemento(divcont,div)
+
+            var p = crearElemento('p');
+            p.innerHTML = 'Texto'
+            var input = crearElemento('textarea');
+            anadirElemento(div,p)
+            anadirElemento(div,input)
+            anadirElemento(div,crearElemento("div"))
+            anadirElemento(divcont,div)
+
+            anadirElemento(divPrinci,divcont)
+        }
+        function salir(){
+            query("#fondo")[0].remove();
+            query("#popUp")[0].remove();
+        }
+        function query(css){
+            return document.querySelectorAll(css);
+        }
+        function anadirElemento(elmento,anadir){
+            elmento.appendChild(anadir);
+        }
+        function crearElemento(tipo) {
+            return document.createElement(tipo);
+        }
+    </script>
+</body>
+</html>

@@ -1,26 +1,96 @@
+.menu {
+  float: left;
+  overflow: auto;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+header.menu {
+  background: #f0f2a7;
+  width: 80%;
+  position: relative;
+}
+header.menu img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main.menu {
+  width: 20%;
+  background: #4465a6;
+}
+
+main.menu img {
+  margin: 5%;
+  margin-top: 50%;
+  width: 90%;
+  height: 20%;
+}
+
+main.menu form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+main.menu form div {
+  display: block;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+main.menu form div img {
+  position: relative;
+  top: 5px;
+  margin: 0;
+  margin-right: 5px;
+  height: 7%;
+  width: 7%;
+}
+main.menu form div input {
+  width: 70%;
+  height: 7%;
+}
+main.menu form div input[name="enviar"]:hover {
+  background: #d9af32;
+  border: #d9af32 solid 1px;
+}
+main.menu form div input[name="enviar"] {
+  background: white;
+  border: white solid 1px;
+}
+#enviar {
+  margin-top: 20%;
+}
+
+@media (max-width: 800px) {
+  main.menu {
+    width: 40%;
+  }
+  header.menu {
+    width: 60%;
+  }
+}
+
 body {
   position: relative;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 100px;
-  grid-template-areas: "header" "main" "footer";
-  justify-items: stretch;
-  align-items: stretch;
 }
 
 .estiloFondoPrincipal {
-  grid-area: main;
   position: relative;
+  min-height: 90vh;
   background-color: #f0f2a7;
   display: block;
+  height: 180%;
+  margin: 0 auto;
   padding: 0;
 }
 
 .estiloCabeceraPrincipal {
-  grid-area: header;
   background-color: #324fa6;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -29,7 +99,7 @@ body {
   padding-right: 2%;
 }
 .estiloCabeceraPrincipal h1 {
-  min-width: 350px;
+  min-width: 300px;
   color: white;
   font-weight: bold;
   font-family: "Comfortaa", cursive;
@@ -56,9 +126,10 @@ body {
   margin-left: 10px;
 }
 .estiloPiePrincipal {
-  grid-area: footer;
   width: 100%;
+  height: 4em;
   background-color: #d9af32;
+  margin: 0 auto;
   bottom: 0;
   padding: 0;
   display: flex;
@@ -107,7 +178,6 @@ body {
   font-family: "Comfortaa", cursive;
   height: 300px;
   width: 500px;
-  margin: 0px 30px 60px 30px;
   -moz-box-shadow: -25px -25px 0 5px #4465a6;
   -webkit-box-shadow: -25px -25px 0 5px#4465A6;
   box-shadow: -25px -25px 0 5px #4465a6;

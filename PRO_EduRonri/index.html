@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./estilos_principal.css" />
-    <title>Document</title>
+    <title>ACADEMIA EDURI</title>
   </head>
   <body>
     <header class="menu">
@@ -46,5 +46,30 @@
       </form>
       <a class="contraseñaOlvidar" href="">¿Olvide la contraseña?</a>
     </main>
+
+    <script>
+      window.onload=iniciar;
+
+      function iniciar(){
+        var botonEnviar=document.querySelector("input[type='submit']");
+        botonEnviar.addEventListener("click",redirigir);
+      }
+
+      function redirigir(e){
+        e.preventDefault();
+
+        //Extraemos los campos de los inputs
+        var usuario = document.getElementById("usuario").value;
+        
+        if(usuario=="alumno"){
+          window.location="http://www.edudaw.com/diw/alumno/alumno_inicio.html";
+        }
+
+        if(usuario=="profesor"){
+          window.location="http://www.edudaw.com/diw/profesor/profesor.html";
+        }
+      }
+    
+    </script>
   </body>
 </html>
