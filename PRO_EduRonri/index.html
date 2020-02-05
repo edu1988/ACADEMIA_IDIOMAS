@@ -9,70 +9,68 @@
   </head>
   <body>
     <header class="menu">
-      <img src="img/menu/holaNiños.jpg" alt="Imagen Gorda" />
+      <!-- <img src="img/menu/holaNiños.jpg" alt="Imagen Gorda" /> -->
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/HTQW-EWYnxE"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </header>
     <main class="menu">
       <img src="img/menu/logo.png" alt="Imagen de EDURONRI (Logo)" />
       <form method="POST">
-        
-          <div>
+        <div>
+          <label for="usuario">
+            <img src="img/menu/usu.png" alt="Usuario" />
+          </label>
 
-            <label for="usuario">
-              <img src="img/menu/usu.png" alt="Usuario" />
-            </label>
+          <input id="usuario" type="text" />
+        </div>
 
-            <input id="usuario" type="text" />
+        <div>
+          <label for="contrasenya">
+            <img src="img/menu/pass.png" alt="Contraseña" />
+          </label>
 
-          </div>
-          
-          <div>
+          <input id="contrasenya" type="password" />
+        </div>
 
-            <label for="contrasenya">
-              <img src="img/menu/pass.png" alt="Contraseña"/>
-            </label>
-
-            <input id="contrasenya" type="password" />
-
-          </div>
-
-          
-
-          
-          
-         
-      
-          <input type="submit" value="Enviar" name="enviar" />
-         
+        <input type="submit" value="Enviar" name="enviar" />
       </form>
       <a class="contraseñaOlvidar" href="">¿Olvide la contraseña?</a>
     </main>
 
     <script>
-      window.onload=iniciar;
+      window.onload = iniciar;
 
-      function iniciar(){
-        var botonEnviar=document.querySelector("input[type='submit']");
-        botonEnviar.addEventListener("click",redirigir);
-        setTimeout(function(){
-          alert("Para entrar a la zona de alumno escribe 'alumno' en la zona de login \n y pulsa a Enviar. Para acceder a la zona de profesor escribe 'profesor'")
-        },3000);
+      function iniciar() {
+        var botonEnviar = document.querySelector("input[type='submit']");
+        botonEnviar.addEventListener("click", redirigir);
+        setTimeout(function() {
+          alert(
+            "Para entrar a la zona de alumno escribe 'alumno' en la zona de login \n y pulsa a Enviar. Para acceder a la zona de profesor escribe 'profesor'"
+          );
+        }, 3000);
       }
 
-      function redirigir(e){
+      function redirigir(e) {
         e.preventDefault();
 
         //Extraemos los campos de los inputs
         var usuario = document.getElementById("usuario").value;
-        
-        if(usuario=="alumno"){
-          window.location="http://www.edudaw.com/diw/alumno/alumno_inicio.html";
+
+        if (usuario == "alumno") {
+          window.location =
+            "http://www.edudaw.com/diw/alumno/alumno_inicio.html";
         }
 
-        if(usuario=="profesor"){
-          window.location="http://www.edudaw.com/diw/profesor/profesor.html";
+        if (usuario == "profesor") {
+          window.location = "http://www.edudaw.com/diw/profesor/profesor.html";
         }
       }
-    
     </script>
   </body>
 </html>

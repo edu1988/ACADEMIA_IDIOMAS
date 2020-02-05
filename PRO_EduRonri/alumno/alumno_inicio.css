@@ -58,7 +58,21 @@ body * {
   border-radius: 50%;
   padding: 5px;
   margin-left: 10px;
+  animation-name: girar;
+  animation-timing-function: linear;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .estiloPiePrincipal {
   grid-area: footer;
   width: 100%;
@@ -128,16 +142,19 @@ body * {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition-duration: 0.5s;
 }
+
+.botonEntrar:hover {
+  width: 50%;
+  height: 30%;
+  margin-right: 25%;
+  margin-top: 10%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  box-shadow: -5px -5px #4465a6;
+}
+
 .estiloFondoPrincipal h2 {
   margin-left: 20px;
-}
-.botonEntrar:hover {
-  cursor: pointer;
-  color: white;
-  background: hsl(225, 54%, 32%);
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

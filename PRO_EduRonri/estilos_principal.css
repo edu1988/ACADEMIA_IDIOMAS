@@ -27,11 +27,24 @@ header.menu {
   /* width: 80%; */
   position: relative;
 }
-header.menu img {
+header.menu iframe {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.7, 1.7);
+  transform: translate(-50%, -50%) scale(1.4, 1.4);
+  animation-name: caer;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+/*ANIMACIÓN PARA EL IFRAME*/
+@keyframes caer {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 50%;
+  }
 }
 
 /*VERSION PARA TABLETA*/
@@ -39,8 +52,8 @@ header.menu img {
   body {
     grid-template-columns: [linea1] 60% [linea2] 40% [linea3];
   }
-  header.menu img {
-    transform: translate(-50%, -50%) scale(1, 1);
+  header.menu iframe {
+    transform: translate(-50%, -50%) scale(0.7, 0.7);
   }
 }
 
@@ -50,10 +63,7 @@ header.menu img {
     grid-template-columns: [linea1] 100% [linea2];
     grid-template-areas: "main";
   }
-
 }
-
-
 
 main.menu {
   /* width: 20%; */
@@ -66,8 +76,8 @@ main.menu {
   align-items: end;
 }
 
-@media (max-height: 350px){
-  main.menu{
+@media (max-height: 350px) {
+  main.menu {
     grid-template-rows: [techo1] 40% [techo2] 40% [techo3] 15% [techo4] 5% [techo5];
     grid-template-areas: "logo" "form" "olvido";
   }
@@ -75,54 +85,52 @@ main.menu {
 
 main.menu > img {
   grid-area: logo;
-  max-width:90%;
-  max-height:90%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 main.menu > form {
   grid-area: form;
-  text-align:center;
-  width:100%;
+  text-align: center;
+  width: 100%;
   max-height: 100%;
 }
-
 
 main.menu > a {
   grid-area: olvido;
   text-decoration: none;
-  color:white;
+  color: white;
 }
 
 /*Enlace de "olvidé la contraseña"*/
-main.menu > a:active{
+main.menu > a:active {
   text-decoration: none;
-  color:white;
+  color: white;
 }
-
-
 
 /*Iconitos del formulario*/
-main.menu>form img{
-  width:20px;
+main.menu > form img {
+  width: 20px;
   height: 20px;
-  position:relative;
-  top:3px;
-  display:inline-block;
+  position: relative;
+  top: 3px;
+  display: inline-block;
 }
 
-main.menu>form div{
-  width:100%;
-  margin:10px 0px;
+main.menu > form div {
+  width: 100%;
+  margin: 10px 0px;
 }
 
 /*Campos del formulario*/
-main.menu>form input[type="text"],input[type="password"]{
-  margin:0px 5px;
+main.menu > form input[type="text"],
+input[type="password"] {
+  margin: 0px 5px;
   width: 60%;
 }
 
 /*Boton enviar*/
-main.menu>form input[type="submit"]{
-  display:block;
-  margin:20px auto;
+main.menu > form input[type="submit"] {
+  display: block;
+  margin: 20px auto;
 }

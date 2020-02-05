@@ -26,17 +26,17 @@ body {
   }
 
   aside {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
   }
 
-  #calendar{
-    margin:0 0 30px 0;
-    padding:0;
+  #calendar {
+    margin: 0 0 30px 0;
+    padding: 0;
   }
 
   /*Versión movil, texto del titulo de la pagina con tamaño de letra más pequeña*/
-  header h1{
+  header h1 {
     font-size: 1em;
   }
 }
@@ -69,14 +69,14 @@ header {
   padding-right: 2%;
 }
 
-div#migas{
-  grid-area: migas; 
+div#migas {
+  grid-area: migas;
   background-color: #f0f2a7;
 }
 
-div#migas>p{
-  padding:0;
-  margin:0;
+div#migas > p {
+  padding: 0;
+  margin: 0;
 }
 
 main#tareas {
@@ -92,7 +92,7 @@ aside {
   grid-area: fecha;
 }
 
-aside>div {
+aside > div {
   text-align: center;
   margin: 40px 60px 0 0;
 }
@@ -136,6 +136,10 @@ header div img {
   border-radius: 50%;
   padding: 5px;
   margin-left: 10px;
+  animation-name: girar;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function: linear;
 }
 footer img {
   height: 30px;
@@ -175,12 +179,12 @@ principal no caben en el ancho de la pantalla, pasen una debajo de la otra y ade
 todo el ancho disponible en ese nuevo formato*/
 @media (max-width: 1150px) {
   /*Hacemos mas ancha la columna del calendario para que quepa holgado*/
-  body{
+  body {
     grid-template-columns: 1fr auto;
   }
 
   /*Ancho de la columna del calendario en auto y ponemos unos margenes laterales al calendario*/
-  aside>div {
+  aside > div {
     text-align: center;
     margin: 40px 60px 0 0;
   }
@@ -201,6 +205,11 @@ main#tareas h2 {
   position: absolute;
   top: -50px;
   left: -10px;
+
+  animation-name: titulos;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 }
 .recursos-contet,
 .tareas-contet {
@@ -267,7 +276,7 @@ main#submenus {
   background: #f0f2a7;
   grid-area: cuerpo;
   padding-bottom: 70px;
-  padding-top:15px;
+  padding-top: 15px;
 }
 main#submenus h2 {
   margin-top: 20px;
@@ -290,7 +299,7 @@ main#submenus h1 {
   position: relative;
   bottom: -100px;
   text-align: center;
-  padding-top:5px;
+  padding-top: 5px;
 }
 .botonEntrar:hover {
   cursor: pointer;
@@ -390,4 +399,38 @@ main#notas {
 #notas .tabla td,
 th {
   border: 1px solid black;
+}
+
+/*ANIMACIONES*/
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes titulos {
+  from {
+    left: 0%;
+  }
+
+  40% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    left: 50%;
+    transform: rotate(-360deg);
+  }
+
+  90% {
+    transform: rotate(-360deg);
+  }
+
+  to {
+    left: 0%;
+    transform: rotate(0deg);
+  }
 }
