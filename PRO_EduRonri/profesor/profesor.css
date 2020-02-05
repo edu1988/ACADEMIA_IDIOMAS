@@ -487,7 +487,8 @@ h1{
     .tresBarras{
         cursor: pointer;
         top: 135px;
-        left: 0px;
+        transform: rotate(270deg);
+        left: 5px;
         display: block;
     }
     .tresBarras img{
@@ -496,9 +497,9 @@ h1{
         padding: 5px;
         border-radius: 10px;
     }
-    #InglesDespegable{
-        display: none !important;
-
+    .cursos #InglesDespegable{
+        display: none ;
+        opacity: 0;
     }
     #popUp{
         background: #F0F2A7;
@@ -509,4 +510,19 @@ h1{
         height: 50vh;
         overflow-y: auto;
     }
+}
+.desplazarDere{
+    animation: desplazarDerecha linear 0.25s;
+}
+@keyframes desplazarDerecha{
+    from{
+        left: -1000px;
+    }
+    to{left: 0px}
+}
+@keyframes desplazarIzquieda{
+    from{
+        left: 0px;
+    }
+    to{left: -1000px}
 }

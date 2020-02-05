@@ -69,23 +69,69 @@
     </footer>
     
     <div class='tresBarras'>
-        <img src='../img/imgSueltos/58497.svg'>
+        <img src='../img/imgSueltos/flecha.png'>
     </div>
     <script>
+        var pulsado = false;
+        query('.tresBarras')[0].addEventListener('click',function(event){
+            if(pulsado){
+                pulsado = false;
+                query('.cursos')[0].style.animation  = 'desplazarIzquieda linear 0.25s'
+                query('.cursos #InglesDespegable').forEach(e=>{
+                    setTimeout(intervalo(e),250);
+                        function intervalo(e){
+                            return function(){
+                                e.style.display = 'none'
+                                e.style.opacity = '0'
+                            }
+                        }
+                    
+                })
+                query('.tresBarras')[0].style.transform = 'rotate(270deg)'
+                query('.tresBarras')[0].style.top = '135px'
+            }else{
+                pulsado = true;
+                query('.cursos')[0].style.animation  = 'desplazarDerecha linear 0.25s'
+                query('.cursos #InglesDespegable').forEach(e=>{
+                            e.style.display = 'block'
+                            e.style.opacity = '1'
+                    
+                })
+                query('.tresBarras')[0].style.transform = 'rotate(90deg)'
+                query('.tresBarras')[0].style.top = '175px'
+            }
+            
+        })
         scrreePro();
         function scrreePro(){
                 if(window.matchMedia("(max-width: 1074px)").matches){
-                    document.querySelectorAll('ul').forEach(ele=>{
+                    if(window.matchMedia("(max-width: 600px)").matches){
+                        document.querySelectorAll('ul').forEach(ele=>{
+                             ele.style.visibility = 'hidden';
+                        });
+                        query("#InglesDespegable").forEach(eleme=>{
+                            eleme.addEventListener("mouseenter",mostarDesplegable);
+                            eleme.addEventListener("mouseleave",desaparecer)
+                            eleme.style.display = 'none'
+                            eleme.style.opacity = '0'
+                        });
+                    }else{
+                        document.querySelectorAll('ul').forEach(ele=>{
                         ele.style.visibility = 'hidden';
-                    });
-                    query("#InglesDespegable").forEach(eleme=>{
-                        eleme.addEventListener("mouseenter",mostarDesplegable);
-                        eleme.addEventListener("mouseleave",desaparecer)
-                    });
+                        });
+                        query("#InglesDespegable").forEach(eleme=>{
+                            eleme.addEventListener("mouseenter",mostarDesplegable);
+                            eleme.addEventListener("mouseleave",desaparecer)
+                            eleme.style.display = 'block'
+                            eleme.style.opacity = '1'
+                        });
+                    }
                 }else{
                     query("#InglesDespegable").forEach(eleme=>{
                         eleme.removeEventListener("mouseenter",mostarDesplegable);
                         eleme.removeEventListener("mouseleave",desaparecer)
+                        eleme.style.display = 'block'
+                        eleme.style.opacity = '1'
                     })
                     document.querySelectorAll('ul').forEach(ele=>{
                         ele.style.visibility = 'visible';
