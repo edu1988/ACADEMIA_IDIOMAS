@@ -158,3 +158,23 @@ body * {
 .estiloFondoPrincipal h2 {
   margin-left: 20px;
 }
+@media(max-width:660px){
+  .estiloCabeceraPrincipal h1{
+    
+    font-size: 1em;
+    min-width: 0px;
+  }
+  .estiloCabeceraPrincipal{
+    justify-content: left;
+  }
+  .estiloCabeceraPrincipal>*{
+    width: 30%;
+  }
+  #alumnoSesion{
+    margin-left: 30px;
+  }
+  .estiloFondoPrincipal .cuadrados{
+    width: 70%;
+    height: 200px;
+  }
+}
