@@ -20,6 +20,7 @@ body * {
   background-color: #f0f2a7;
   display: block;
   padding: 0;
+  height:80vh;
 }
 
 .estiloCabeceraPrincipal {
