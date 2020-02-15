@@ -1,0 +1,493 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: 100px 30px auto auto;
+  grid-template-areas:
+    "cabecera cabecera"
+    "migas migas"
+    "cuerpo fecha"
+    "pie pie";
+}
+
+/*Version movil, cambiamos la distribución del grid del body para que solo halla una columna*/
+@media (max-width: 700px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 30px auto auto auto;
+    grid-template-areas:
+      "cabecera"
+      "migas"
+      "cuerpo"
+      "fecha"
+      "pie";
+  }
+
+  aside {
+    margin: 0;
+    padding: 0;
+  }
+
+  #calendar {
+    margin: 0 0 30px 0;
+    padding: 0;
+  }
+
+  /*Versión movil, texto del titulo de la pagina con tamaño de letra más pequeña*/
+  header h1 {
+    font-size: 1em;
+  }
+}
+
+body * {
+  font-family: "Comfortaa", cursive;
+}
+
+/*
+  body#submenu{
+      margin: 0 auto;
+      padding: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr ;
+      grid-template-rows: 100px auto 70px;
+      grid-template-areas: "cabecera cabecera"
+                          "cuerpo fecha"
+                          "pie pie";
+  }
+  
+  */
+header {
+  background: #324fa6;
+  grid-area: cabecera;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+div#migas {
+  grid-area: migas;
+  background-color: #f0f2a7;
+}
+
+div#migas > p {
+  padding: 0;
+  margin: 0;
+}
+
+main#tareas {
+  background: #f0f2a7;
+  grid-area: cuerpo;
+  text-align: center;
+  padding: 40px 0;
+  /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+}
+aside {
+  background: #f0f2a7;
+  grid-area: fecha;
+}
+
+aside > div {
+  text-align: center;
+  margin: 40px 60px 0 0;
+}
+
+aside iframe {
+  margin-top: 20px;
+  height: 250px;
+}
+footer {
+  background: #d9af32;
+  grid-area: pie;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: visible;
+}
+
+header h1 {
+  min-width: 100px;
+  color: white;
+  font-weight: bold;
+  font-family: "Comfortaa", cursive;
+}
+header div {
+  display: flex;
+  align-items: center;
+}
+header img:first-of-type {
+  margin-right: 20px;
+}
+header img {
+  height: 60px;
+}
+header div span {
+  color: white;
+  font-weight: bold;
+  font-family: "Comfortaa", cursive;
+}
+header div img {
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 10px;
+  animation-name: girar;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+}
+footer img {
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+footer address {
+  display: inline-flex;
+  align-items: center;
+  min-width: 100px;
+  padding: 20px;
+}
+footer div.contacto {
+  min-width: 300px;
+  display: inline-flex;
+  align-items: center;
+}
+footer div.contacto span {
+  margin-right: 10px;
+  border-right: solid 4px white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+main#tareas .recursos,
+.tareas {
+  margin: 20px;
+  background-color: white;
+  position: relative;
+  width: 40%;
+  min-width: 300px;
+  display: inline-block;
+}
+
+/*Media query para que en la versión para tableta, una vez que las dos cajas del contenido
+  principal no caben en el ancho de la pantalla, pasen una debajo de la otra y además ocupen
+  todo el ancho disponible en ese nuevo formato*/
+@media (max-width: 1150px) {
+  /*Hacemos mas ancha la columna del calendario para que quepa holgado*/
+  body {
+    grid-template-columns: 1fr auto;
+  }
+
+  /*Ancho de la columna del calendario en auto y ponemos unos margenes laterales al calendario*/
+  aside > div {
+    text-align: center;
+    margin: 40px 60px 0 0;
+  }
+
+  main#tareas .recursos,
+  .tareas {
+    width: 80%;
+  }
+}
+
+main#tareas h2 {
+  font-family: "Comfortaa", cursive;
+  background: #4465a6;
+  color: white;
+  display: inline-block;
+  border-radius: 25px;
+  padding: 10px;
+  position: absolute;
+  top: -50px;
+  left: -10px;
+
+  animation-name: titulos;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.recursos-contet,
+.tareas-contet {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+main#tareas * {
+  font-family: "Comfortaa", cursive;
+}
+main#tareas .recursos-contet p {
+  font-family: "Comfortaa", cursive;
+  padding-left: 40px;
+  padding-right: 10px;
+}
+main#tareas .recursos-contet img {
+  height: 20px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+main#tareas .recursos-contet h3 {
+  font-family: "Comfortaa", cursive;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 1.75em;
+}
+main#tareas .tareas-contet h3 {
+  font-family: "Comfortaa", cursive;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 1.75em;
+}
+main#tareas .tareas-contet h4 {
+  font-family: "Comfortaa", cursive;
+  padding-left: 40px;
+  font-size: 1.25em;
+}
+main#tareas .tareas-contet p {
+  padding-left: 50px;
+  padding-right: 10px;
+}
+.arrastrar {
+  background: #6997bf;
+  height: 60px;
+  display: flex;
+  margin-left: 50px;
+  align-items: center;
+  margin-right: 10px;
+  text-align: center;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.botones input {
+  margin-top: 20px;
+  height: 20px;
+}
+.botones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding-left: 50px;
+  padding-right: 10px;
+}
+main#submenus {
+  background: #f0f2a7;
+  grid-area: cuerpo;
+  padding-bottom: 70px;
+  padding-top: 15px;
+}
+main#submenus h2 {
+  margin-top: 20px;
+  margin-right: 20px;
+  display: grid;
+  text-align: end;
+}
+main#submenus h1 {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: grid;
+  text-align: start;
+}
+.botonEntrar {
+  cursor: pointer;
+  color: white;
+  background: #4465a6;
+  width: 100%;
+  height: 20%;
+  position: relative;
+  bottom: -100px;
+  text-align: center;
+  padding-top: 5px;
+}
+.botonEntrar:hover {
+  cursor: pointer;
+  color: white;
+  background: hsl(225, 54%, 32%);
+  text-align: center;
+}
+#submenu .contenedor {
+  width: 80%;
+  height: 150px;
+  font-family: "Comfortaa", cursive;
+  margin-top: 50px;
+  margin-left: 10%;
+  background: white;
+  display: grid;
+
+  position: relative;
+  grid-template-columns: 1fr 3fr 1fr;
+  -moz-box-shadow: -5px -5px 0 5px #4465a6;
+  -webkit-box-shadow: -5px -5px 0 5px#4465A6;
+  box-shadow: -5px -5px 0 5px #4465a6;
+}
+#submenu .contenedor * {
+  display: inline-block;
+}
+#taresaBody {
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px auto auto;
+  grid-template-areas:
+    "cabecera cabecera"
+    "cuerpo cuerpo"
+    "pie pie";
+}
+main#notas {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  height: 100%;
+}
+
+div.cursos {
+  min-height: 600px;
+}
+i {
+  display: none !important;
+}
+
+@media (max-width: 800px) {
+  main#notas {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
+    height: 100%;
+  }
+
+  div.cursos {
+    display: flex;
+  }
+
+  div.botonesCursos {
+    /* grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr; */
+    display: flex !important;
+    justify-content: space-evenly;
+  }
+
+  div.botonesCursos div {
+    width: 120px;
+  }
+
+  div.cursos {
+    height: 50px;
+    min-height: 0px;
+  }
+
+  main#notas h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  div.cursos {
+    display: flex !important;
+    justify-content: center;
+  }
+  div.botonesCursos div {
+    display: none;
+  }
+
+  i {
+    display: inline-block !important;
+    color: white;
+    align-self: center;
+  }
+}
+
+/* #notas div {
+  display: inline-block;
+} */
+.cursos {
+  display: grid;
+}
+#notas .cursos {
+  background-color: #324fa6;
+}
+#notas .contenido {
+  background-color: #f0f2a7;
+}
+.cursos h1 {
+  color: white;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+}
+.botonesCursos {
+  display: grid;
+}
+#notas .cursos .botonesCursos {
+  display: grid;
+}
+#notas .cursos .botonesCursos div {
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: 5%;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#notas .cursos .botonesCursos div:hover {
+  background-color: #6997bf;
+}
+#notas .contenido {
+  display: block;
+}
+#notas .tabla {
+  display: grid;
+  background: #f0f2a7;
+  height: 100%;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: "table table";
+  align-items: center;
+  justify-items: center;
+}
+#notas .tabla table {
+  grid-area: table;
+  border: 1px solid black;
+  width: 80%;
+  height: 70%;
+}
+#notas .tabla td,
+th {
+  border: 1px solid black;
+}
+
+/*ANIMACIONES*/
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes titulos {
+  from {
+    left: 0%;
+  }
+
+  40% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    left: 50%;
+    transform: rotate(-360deg);
+  }
+
+  90% {
+    transform: rotate(-360deg);
+  }
+
+  to {
+    left: 0%;
+    transform: rotate(0deg);
+  }
+}
