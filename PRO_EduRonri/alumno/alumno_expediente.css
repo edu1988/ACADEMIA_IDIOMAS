@@ -46,19 +46,19 @@ body * {
 }
 
 /*
-  body#submenu{
-      margin: 0 auto;
-      padding: 0;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr ;
-      grid-template-rows: 100px auto 70px;
-      grid-template-areas: "cabecera cabecera"
-                          "cuerpo fecha"
-                          "pie pie";
-  }
-  
-  */
+body#submenu{
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 100px auto 70px;
+    grid-template-areas: "cabecera cabecera"
+                        "cuerpo fecha"
+                        "pie pie";
+}
+
+*/
 header {
   background: #324fa6;
   grid-area: cabecera;
@@ -85,7 +85,7 @@ main#tareas {
   text-align: center;
   padding: 40px 0;
   /* display: grid;
-    grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr 1fr; */
 }
 aside {
   background: #f0f2a7;
@@ -175,8 +175,8 @@ main#tareas .recursos,
 }
 
 /*Media query para que en la versión para tableta, una vez que las dos cajas del contenido
-  principal no caben en el ancho de la pantalla, pasen una debajo de la otra y además ocupen
-  todo el ancho disponible en ese nuevo formato*/
+principal no caben en el ancho de la pantalla, pasen una debajo de la otra y además ocupen
+todo el ancho disponible en ese nuevo formato*/
 @media (max-width: 1150px) {
   /*Hacemos mas ancha la columna del calendario para que quepa holgado*/
   body {
@@ -343,65 +343,37 @@ main#notas {
   height: 100%;
 }
 
-div.cursos {
-  min-height: 600px;
-}
-i {
-  display: none !important;
+div.cursos{
+    min-height: 600px;
 }
 
-@media (max-width: 800px) {
+@media (max-width:800px){
   main#notas {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px auto;
-    height: 100%;
-  }
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px auto;
+      height: 100%;
+    }
 
-  div.cursos {
-    display: flex;
-  }
+    div.botonesCursos{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
 
-  div.botonesCursos {
-    /* grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr; */
-    display: flex !important;
-    justify-content: space-evenly;
-  }
+    div.cursos{
+        height: 50px;
+        min-height: 0px;
+    }
 
-  div.botonesCursos div {
-    width: 120px;
-  }
+    main#notas h1{
+        display:none;
+    }
 
-  div.cursos {
-    height: 50px;
-    min-height: 0px;
-  }
-
-  main#notas h1 {
-    display: none;
-  }
+    
 }
-
-@media (max-width: 500px) {
-  div.cursos {
-    display: flex !important;
-    justify-content: center;
-  }
-  div.botonesCursos div {
-    display: none;
-  }
-
-  i {
-    display: inline-block !important;
-    color: white;
-    align-self: center;
-  }
-}
-
-/* #notas div {
+#notas div {
   display: inline-block;
-} */
+}
 .cursos {
   display: grid;
 }
@@ -425,7 +397,7 @@ i {
 #notas .cursos .botonesCursos div {
   background-color: white;
   border-radius: 20px;
-  width: 100%;
+  width: 80%;
   margin-left: 5%;
   padding: 10px;
   text-align: center;
